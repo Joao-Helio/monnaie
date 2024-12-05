@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Dashboard</h1>
+<h2>Total Balance: ${{ "%.2f"|format(total_balance) }}</h2>
+<h2>Total Expenses This Month: ${{ "%.2f"|format(total_expenses) }}</h2>
+
+<h3>Accounts</h3>
+<table>
+    <tr>
+        <th>Account</th>
+        <th>Balance</th>
+    </tr>
+    {% for account in accounts %}
+    <tr>
+        <td>{{ account.name }}</td>
+        <td>${{ "%.2f"|format(account.balance) }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
+

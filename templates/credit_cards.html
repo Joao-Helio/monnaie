@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Credit Cards</h1>
+<table>
+    <tr>
+        <th>Card Name</th>
+        <th>Current Balance</th>
+        <th>Credit Limit</th>
+        <th>Closing Date</th>
+        <th>Due Date</th>
+        <th>Actions</th>
+    </tr>
+    {% for card in credit_cards %}
+    <tr>
+        <td>{{ card.name }}</td>
+        <td>${{ "%.2f"|format(card.current_balance) }}</td>
+        <td>${{ "%.2f"|format(card.limit) }}</td>
+        <td>{{ card.closing_date }}</td>
+        <td>{{ card.due_date }}</td>
+        <td>
+            <a href="#">View Transactions</a>
+            <a href="#">Add Transaction</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<a href="#">Add New Credit Card</a>
+{% endblock %}

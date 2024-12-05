@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Accounts</h1>
+<table>
+    <tr>
+        <th>Account</th>
+        <th>Balance</th>
+        <th>Actions</th>
+    </tr>
+    {% for account in accounts %}
+    <tr>
+        <td>{{ account.name }}</td>
+        <td>${{ "%.2f"|format(account.balance) }}</td>
+        <td>
+            <a href="#">View Transactions</a>
+            <a href="#">Add Transaction</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<a href="#">Add New Account</a>
+{% endblock %}
